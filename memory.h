@@ -28,9 +28,9 @@ struct msgbuf
 {
 	long mtype;			//id of sender/receiver - master uses NP, users their ID
 
-	int id;					//who is sending the message
+	int id;					
 	int reference;	//1 for read, 0 for write reference
-	int addr;				//memory address
+	int addr;				
 };
 
 struct user
