@@ -50,9 +50,9 @@ int main(const int argc, char * const argv[]){
 	while(msg.addr >= 0){
 
 		msg.mtype 		= NP;
-		msg.id  			= id + 1;	//IDs are 0 based, but we can't send message with type 0
+		msg.id  			= id + 1;	
 		msg.reference	= ((rand() % 100) < 55) ? 0 : 1;
-		msg.addr			= (rand() % PROCESS_PAGES) * 1024;	//random address
+		msg.addr			= (rand() % PROCESS_PAGES) * 1024;	
 
 		if(	(msgsnd(mid, (void*)&msg, MESSAGE_SIZE, 0) < 0) ||
 				(msgrcv(mid, (void*)&msg, MESSAGE_SIZE, msg.id, 0) < 0)	){
