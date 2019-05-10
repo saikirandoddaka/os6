@@ -140,7 +140,7 @@ void fr_ref(struct frame *tbl, const int i){
     num_refs = 0;
   }
 
-  tbl[i].refbyte = (1 << 7);  //shift 1 to the highest bit
+  tbl[i].refbyte = (1 << 7);  
 }
 
 void fr_dirty(const int frame){
@@ -237,7 +237,7 @@ int init(){
     return EXIT_FAILURE;
   }
 
-  //initialize shared memory region
+  
   bzero(mem, sizeof(struct shared_memory));
 
   key_t msg_key = ftok("memory.h", 5678);
@@ -325,7 +325,7 @@ int oss_clock_increment(){
 
   tsadd(&mem->oss_clock, &tick);  //advance clock
 
-  //check if we need to fork
+  
   if( (mem->oss_clock.tv_sec >= fork_at.tv_sec) ||
       ( (mem->oss_clock.tv_sec  == fork_at.tv_sec) &&
         (mem->oss_clock.tv_nsec >= fork_at.tv_nsec))  ){
